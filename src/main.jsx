@@ -4,9 +4,7 @@ import App from './App.jsx'
 import Home from './home/Home.jsx'
 import './index.css'
 import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+createBrowserRouter, RouterProvider,} from "react-router-dom";
 import 'swiper/css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
