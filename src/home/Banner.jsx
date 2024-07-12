@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import productData from "../products.json"
 
 const title = (
     <h2>Search <span>Products</span></h2>
@@ -20,11 +21,24 @@ const bannerList = [
     ];
 
 const Banner = () => {
+    const [searchInput, setSearchInput] = useState("");
+    const [filterProducts, setfilterProducts] = useState(productData);
+    // console.log(productData);
+
+    // Search Functionality
+
+    const handleSearch = e => {
+        console.log(e.target.value);
+    }
+
   return (
       <div className="banner-section style-4">
           <div className="container">
               <div className="banner-content">
                   {title}
+                  <form>
+                      <input type="text" name="search" id="search" placeholder="Search Your Product" value={searchInput} onChange={handleSearch} />
+                  </form>
               </div>
           </div>
     </div>
