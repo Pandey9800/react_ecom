@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import productData from "../products.json"
+import {Link}  from 'react-router-dom'
+import SelectedCategory from '../components/SelectedCategory'
 
 const title = (
     <h2>Search <span>Products</span></h2>
@@ -28,21 +30,39 @@ const Banner = () => {
     // Search Functionality
 
     const handleSearch = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
+        const searchTerm = e.target.value;
+        setSearchInput(searchTerm); 
+
+        //filtering products based on search
+        const filtered = productData.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        setfilterProducts(filtered);
     }
 
-  return (
-      <div className="banner-section style-4">
-          <div className="container">
-              <div className="banner-content">
-                  {title}
-                  <form>
-                      <input type="text" name="search" id="search" placeholder="Search Your Product" value={searchInput} onChange={handleSearch} />
-                  </form>
-              </div>
-          </div>
-    </div>
-  )
+    return (
+        <div className="banner-section style-4">
+            <div className="container">
+                <div className="banner-content">
+                    {title}
+                    <form>
+                        <SelectedCategory select={"all"} />
+                        <input type="text" name="search" id="search" placeholder="Search Your Product" value={searchInput} onChange={handleSearch} />
+                        <button type="submit">
+                            <i className="icofont=search"></i>
+                        </button>
+                    </form>
+                    <p>{desc}</p>
+                    <ul className="lab-ul">
+                        {searchInput && filterProducts.map((product, i) => (
+                            <li key={i}>
+                                <Link to={`/shop/${product.id}`}>{product.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );    
 }
 
 export default Banner
