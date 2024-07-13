@@ -1,8 +1,9 @@
 import React from 'react'
+import PageHead from '../components/PageHead'
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <div><PageHead title="Blog Page" curPage="Blog" /></div>
   )
 }
 

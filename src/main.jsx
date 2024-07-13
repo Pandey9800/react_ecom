@@ -14,6 +14,7 @@ import '././assets/css/icofont.min.css';
 import '././assets/css/animate.css';
 import '././assets/css/style.min.css';
 import Blog from './blog/Blog.jsx'
+import Shop from './shop/Shop.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     children:[
       { path: "/", element: <Home /> },
       { path: "/blog", element: <Blog /> },
+      { path: "/shop", element: <Shop /> },
     ],
   },
 ]);
