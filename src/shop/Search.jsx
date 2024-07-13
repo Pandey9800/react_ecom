@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Search = ({ products, GridList }) => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +16,23 @@ const Search = ({ products, GridList }) => {
           {/* showing search result */}
           <div>
               {
-                  
+                  searchTerm && filteredProducts.map((products) => (
+                      <Link key={products.id} to={`/shop/${products.id}`}>
+                          <div className="d-flex gap-3 p-2">
+                              <div>
+                                  <div className="pro-thumb h-25">
+                                      <img src={products.img} alt="" width={70} className="flex-{grow|shrink}-0" />
+                                  </div>
+                              </div>
+                              <div className="product-content">
+                                  <p>
+                                      <Link to={`/shop/${products.id}`}>{products.name}</Link>
+                                  </p>
+                                  <h6>{products.price} ₹</h6>
+                              </div>
+                          </div>
+                      </Link>
+                  ))
               }
           </div>
     </div>
