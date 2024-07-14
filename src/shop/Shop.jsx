@@ -5,6 +5,7 @@ import ProductCards from './ProductCards'
 import Pagination from './Pagination'
 import Search from './Search'
 import ShopCategory from './ShopCategory'
+import Poppost from './Poppost'
 
 const showResults = "Showing 01-12 of 139 Results"
 
@@ -86,6 +87,7 @@ const Shop = () => {
                                   setProducts={setProducts}
                                   selectedCategory={selectedCategory}
                               />
+                              <Poppost/>
                           </aside>
                       </div>
                   </div>
