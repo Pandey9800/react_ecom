@@ -44,7 +44,7 @@ const Poppost = () => {
           <ul className="widget-wrapper">
               {
                   postList.map((blog, i) => (
-                      <li key={i}> 
+                      <li key={i} className='d-flex flex-wrap justify-content-between'> 
                           <div className="post-thumb">
                               <Link to={`/blog/${blog.id}`}><img src={blog.imgUrl} alt="" /></Link>
                         </div>
