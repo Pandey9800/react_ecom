@@ -5,6 +5,10 @@ import PageHead from '../components/PageHead';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import { Autoplay, Navigation } from 'swiper/modules';
+import Productdisplay from './Productdisplay';
+import Review from './Review';
+import Poppost from './Poppost';
+import Tags from './Tags';
 
 const SingleProduct = () => {
     const [product, setProduct] = useState([]);
@@ -70,7 +74,7 @@ const SingleProduct = () => {
                                             <div className="post-content">
                                                 <div>
                                                     {
-                                                        result.map((item => <p key={item.id}>{item.name}</p>))
+                                                        result.map((item => <Productdisplay key={item.id} item={item} />))
                                                     }
                                                 </div>
                                             </div>
@@ -79,13 +83,18 @@ const SingleProduct = () => {
                                 </div>
                                 {/* reviews */}
                                 <div className="review">
-                                    Review
+                                    <Review />
                                 </div>
                             </article>
                         </div>
 
                         {/* Right Side */}
-                        <div className="col-lg-4 col-12">Right Side</div>
+                        <div className="col-lg-4 col-12">
+                            <aside className="ps-lg-4">
+                                <Poppost />
+                                <Tags />
+                            </aside>
+                        </div>
                     </div>
                 </div>
             </div>
