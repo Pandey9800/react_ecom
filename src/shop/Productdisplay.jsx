@@ -116,12 +116,12 @@ const Productdisplay = ({ item }) => {
 
                   {/* btn Sections */}
 
-                  <button type='submit' className='lab-btn'>
+                  <Link to='/cart-page' className='lab-btn'>
                       <span>Add to Cart</span>
-                  </button>
-                  <Link to="/cart-page" className="lab-btn bg-primary">
-                      <span>Check Out</span>
                   </Link>
+                  <button type="submit" className="lab-btn bg-primary">
+                      <span>Check Out</span>
+                  </button>
               </form>
           </div>
       </div>
