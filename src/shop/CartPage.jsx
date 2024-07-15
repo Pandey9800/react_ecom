@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import PageHead from '../components/PageHead';
+import delImgUrl from '../assets/images/shop/del.png'
 
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -94,19 +95,77 @@ const CartPage = () => {
                                                       <Link to="/shop">{item.name}</Link>
                                                   </div>
                                               </td>
-                                              <td className="cat-price">{item.price}</td>
+                                              <td className="cat-price">{item.price} ₹</td>
                                               <td className="cat-quantity">
+                                                  <div className="cart-plus-minus">
                                                   <div className="dec qtybutton" onClick={() => handleDecrease(item)}>-</div>
                                                       <input type="text" className="cart-plus-minus-box" name="qtybutton" value={item.quantity} />
-                                                  <div className="inc qtybutton" onClick={() => handleIncrease(item) }>+</div>
+                                                      <div className="inc qtybutton" onClick={() => handleIncrease(item)}>+</div>
+                                                      </div>
                                               </td>
+                                              <td className="cat-toprice">{calculateTotalPrice(item)} ₹ </td>
+                                              <td className="car-edit"><a href="#" onClick={() => handleRemoveItem(item)}><img src={delImgUrl} alt="" /></a></td>
                                           </tr>
                                       ))
                                   }
                               </tbody>
                           </table>
                       </div>
-                  </div>
+                      {/* cart top ends */}
+
+                      
+                      {/* Cart Bottom */}
+                        <div className="cart-bottom">
+                            {/* Checkout Box */}
+                            <div className="cart-checkout-box">
+                                <form className="coupon">
+                                    <input className="cart-page-input-text" type="text" name="coupon" id="coupon" placeholder="Coupon Code..." />
+                                    <input type="submit" value="Apply Coupon" />
+                              </form>
+                              <form className="cart-checkout">
+                              <input type="submit" value="Update Cart" />
+                              <div>CheckoutPage</div>
+                              </form>
+                          </div>
+                          {/* checkout box end */}
+                          
+                          {/* shopping box */}
+
+                          <div className="shiping-box">
+                              <div className="row">
+                                  <div className="col-md-6 col-12">
+                                      <div className="calculate-shiping">
+                                          <h3>Calculate Shipping</h3>
+                                          <div className="outline-select">
+                                              <select>
+                                                  <option value="ind">India</option>
+                                              </select>
+                                              <span className="select-icon">
+                                                  <i className="icofont-rounded-down"></i>
+                                              </span>
+                                          </div>
+
+                                          <div className="outline-select shipping-select">
+                                          <select>
+                                                  <option value="ASA">Asam</option>
+                                                  <option value="CG">Chhattisgarh</option>
+                                                  <option value="ND">New Delhi</option>
+                                                  <option value="HYD">Hyderabad</option>
+                                              </select>
+                                              <span className="select-icon">
+                                                  <i className="icofont-rounded-down"></i>
+                                              </span>
+                                          </div>
+                                          <input type="text" name="postalcode" id="postalcode"  className="cart-page-input-text" />
+                                      </div> 
+                                </div>
+                                <div className="col-md-6 col-12">Right Side</div>
+                              </div>
+                          </div>
+                        </div>
+
+                      {/* cart bottom ends */}
+                </div>
               </div>
           </div>
     </div>
