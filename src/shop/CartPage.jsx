@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import PageHead from '../components/PageHead';
 import delImgUrl from '../assets/images/shop/del.png'
+import CheckOutPage from './CheckOutPage';
 
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -124,7 +125,9 @@ const CartPage = () => {
                               </form>
                               <form className="cart-checkout">
                               <input type="submit" value="Update Cart" />
-                              <div>CheckoutPage</div>
+                              <div>
+                                <CheckOutPage/>
+                              </div>
                               </form>
                           </div>
                           {/* checkout box end */}
@@ -155,14 +158,31 @@ const CartPage = () => {
                                             <span className="select-icon">
                                                 <i className="icofont-rounded-down"></i>
                                               </span>
-                                              <div>
-                                                  <input type="text" name="postalCode" id="postalcode" className="cart-page-input-text"
-                                                      placeholder="Enter Postal Code / ZIP" />
-                                              </div>
-                                        </div>
+                                          </div>
+                                          <input type="text" name="postalcode" id="postalcode"  className="cart-page-input-text" />
                                       </div> 
                                 </div>
-                                <div className="col-md-6 col-12">Right Side</div>
+
+                                <div className="col-md-6 col-12">
+                                    <div className="cart-overview">
+                                        <h3>Cart Totals</h3> 
+                                        <ul className="lab-ul">
+                                            <li>
+                                                <span className="pull-left">Cart Subtotal</span>
+                                                <p className="pull-right">{cartSubtotal} ₹</p>
+                                            </li>
+                                            <li>
+                                                <span className="pull-left">Shipping & Handling</span>
+                                                <p className="pull-right">Free Shipping</p>
+                                            </li>
+                                            <li>
+                                                <span className="pull-left">Order Total</span>
+                                                <p className="pull-right">{orderTotal.toFixed(2)} ₹</p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
                               </div>
                           </div>
                         </div>
