@@ -146,17 +146,20 @@ const CartPage = () => {
                                           </div>
 
                                           <div className="outline-select shipping-select">
-                                          <select>
-                                                  <option value="ASA">Asam</option>
-                                                  <option value="CG">Chhattisgarh</option>
-                                                  <option value="ND">New Delhi</option>
-                                                  <option value="HYD">Hyderabad</option>
-                                              </select>
-                                              <span className="select-icon">
-                                                  <i className="icofont-rounded-down"></i>
+                                            <select>
+                                                <option value="ASA">Assam</option>
+                                                <option value="CG">Chhattisgarh</option>
+                                                <option value="ND">New Delhi</option>
+                                                <option value="HYD">Hyderabad</option>
+                                            </select>
+                                            <span className="select-icon">
+                                                <i className="icofont-rounded-down"></i>
                                               </span>
-                                          </div>
-                                          <input type="text" name="postalcode" id="postalcode"  className="cart-page-input-text" />
+                                              <div>
+                                                  <input type="text" name="postalCode" id="postalcode" className="cart-page-input-text"
+                                                      placeholder="Enter Postal Code / ZIP" />
+                                              </div>
+                                        </div>
                                       </div> 
                                 </div>
                                 <div className="col-md-6 col-12">Right Side</div>
