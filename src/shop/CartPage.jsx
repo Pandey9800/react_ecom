@@ -159,7 +159,8 @@ const CartPage = () => {
                                                 <i className="icofont-rounded-down"></i>
                                               </span>
                                           </div>
-                                          <input type="text" name="postalcode" id="postalcode"  className="cart-page-input-text" />
+                                          <input type="text" placeholder='POST / ZIP Code' name="postalcode" id="postalcode" className="cart-page-input-text" />
+                                          
                                       </div> 
                                 </div>
 
