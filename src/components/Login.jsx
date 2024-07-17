@@ -12,7 +12,7 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const {signUpWithGmail, login} = useContext(AuthContext);
     const location = useLocation();
-    const navigat = useNavigate();
+    const navigate = useNavigate();
 
 
     const from = location.state?.from?.pathname || "/";
@@ -26,16 +26,22 @@ const Login = () => {
         // console.log(email, password)
         login(email, password).then((result) => {
             const user = result.user;
-            alert("Login successfull!")
-            navigat(from, {replace: true})
+            alert("Login successful!")
+            navigate(from, {replace: true})
         }).catch((error) => {
             const errorMsg = error.message;
             setErrorMessage("Please Provide Valid Email Address & Password");
         })
     }
 
-    const handleRegister = () => {
-
+    const handleRegister = (e) => {
+        signUpWithGmail().then((result) => {
+            const user = result.user;
+            navigate(from, {replace: true})
+        }).catch((error) => {
+            const errorMsg = error.message;
+            setErrorMessage("Please Provide Valid Email Address & Password");
+        })
     }
 
   return (
@@ -55,7 +61,7 @@ const Login = () => {
                         <div>
                             {
                                 errorMessage && (
-                                    <div className="error-message text-danger">
+                                    <div className="error-message text-danger mb-1">
                                         {errorMessage}
                                     </div>
                                 )
@@ -78,10 +84,9 @@ const Login = () => {
                     </form>
 
                     {/* account bottom */}
-
                     <div className="account-bottom">
                         <span className='d-block cate pt-10'>
-                            Don't Have an Account? <Link to="sign-up">Sign Up</Link>
+                            Don't Have an Account? <Link to="/signup">Sign Up</Link>
                         </span>
                         <span className="or">
                             <span>or</span>
@@ -90,11 +95,22 @@ const Login = () => {
                         {/* social login */}
 
                         <h5 className='subtitle'>{socialTitle}</h5>
-                        <ul className="lab-ul social-icons justify-content-center">
-                            <li className='github'><a href='/' onClick={handleRegister} className="icofont-github"></a></li>
-                            <li className="facebook"><a href='/' onClick={handleRegister} className="icofont-facebook"></a></li>
-                            <li className="twitter"><a href='/' onClick={handleRegister} className="icofont-twitter"></a></li>
-                            <li className="instagram"><a href='/' onClick={handleRegister} className="icofont-instagram"></a></li>
+                          <ul className="lab-ul social-icons justify-content-center">
+                              <li>
+                                  <button className='github' onClick={handleRegister}><i className="icofont-github"></i></button>
+                              </li>
+                              <li>
+                                  <a href='/' className='facebook'><i className="icofont-facebook"></i></a>
+                              </li>
+                              <li>
+                                  <a href='/' className='twitter'><i className="icofont-twitter"></i></a>
+                              </li>
+                              <li>
+                                  <a href='/' className='linkedin'><i className="icofont-linkedin"></i></a>
+                              </li>
+                              <li>
+                                  <a href='/' className='instagram'><i className="icofont-instagram"></i></a>
+                              </li>
                         </ul>
                     </div>
 
