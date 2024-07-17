@@ -38,7 +38,7 @@ const CheckOutPage = () => {
                             </ul>
                             {/* contents */}
 
-                            <div className="tab-content" id="myTabContent">
+<div className="tab-content" id="myTabContent">
     {/* Visa Content */}
     <div className={`tab-pane fade ${activeTab === "visa" ? "show active" : ""}`} id='visa' role='tabpanel' aria-labelledby='visa-tab'>
         <div className="mt-4 mx-4">
@@ -87,13 +87,13 @@ const CheckOutPage = () => {
                 </div>
                 <div className="d-flex flex-row">
                     <div className="inputbox">
-                        <input type="text" name='expiry' disabled id='expiry' className='form-control' required />
-                        {/* <span>Extra Info</span> */}
+                        <input type="text" name='exinfo' id='exinfo' className='form-control' required />
+                        <span>Extra Info</span>
                     </div>
-                    <div className="inputbox">
+                    {/* <div className="inputbox">
                         <input type="text" disabled name='cvv' id='cvv' className='form-control' required />
-                        {/* <span>CVV</span> */}
-                    </div>
+                        <span>CVV</span>
+                    </div> */}
                 </div>
                 <div className="px-5">
                     <button className='btn btn-success btn-block'>Add Paypal</button>
@@ -102,6 +102,10 @@ const CheckOutPage = () => {
         </div>
     </div>
 </div>
+
+{/* payment desclaimer */}
+<p className='mt-3 px-4 p-Disclaimer'><em>Payment Disclaimer:</em> In no event shall payment or partial payment by Owner for any material or service</p>  
+
 
                         </div>
                     </div>
