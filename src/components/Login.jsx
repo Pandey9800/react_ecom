@@ -23,7 +23,19 @@ const Login = () => {
         // console.log(form)
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
+        login(email, password).then((result) => {
+            const user = result.user;
+            alert("Login successfull!")
+            navigat(from, {replace: true})
+        }).catch((error) => {
+            const errorMsg = error.message;
+            setErrorMessage("Please Provide Valid Email Address & Password");
+        })
+    }
+
+    const handleRegister = () => {
+
     }
 
   return (
@@ -38,6 +50,16 @@ const Login = () => {
                         </div>
                         <div className="form-group">
                             <input type="password" name="password" id="password" placeholder='Password *' required />
+                        </div>
+                        {/* shopwing message */}
+                        <div>
+                            {
+                                errorMessage && (
+                                    <div className="error-message text-danger">
+                                        {errorMessage}
+                                    </div>
+                                )
+                            }
                         </div>
                         <div className="form-group">
                             <div className='d-flex justify-content-between flex-wrap pt-sm-2'>
@@ -69,10 +91,10 @@ const Login = () => {
 
                         <h5 className='subtitle'>{socialTitle}</h5>
                         <ul className="lab-ul social-icons justify-content-center">
-                            <li className='github'><a href='/' className="icofont-github"></a></li>
-                            <li className="facebook"><a href='/' className="icofont-facebook"></a></li>
-                            <li className="twitter"><a href='/' className="icofont-twitter"></a></li>
-                            <li className="instagram"><a href='/' className="icofont-instagram"></a></li>
+                            <li className='github'><a href='/' onClick={handleRegister} className="icofont-github"></a></li>
+                            <li className="facebook"><a href='/' onClick={handleRegister} className="icofont-facebook"></a></li>
+                            <li className="twitter"><a href='/' onClick={handleRegister} className="icofont-twitter"></a></li>
+                            <li className="instagram"><a href='/' onClick={handleRegister} className="icofont-instagram"></a></li>
                         </ul>
                     </div>
 
