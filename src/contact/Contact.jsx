@@ -59,7 +59,21 @@ const Contact = () => {
                             <input type="text" name="name" id="name" placeholder='Your Name *' />
                         </div>
                         <div className="form-group">
-                            <input type="email" name="email" id="email" placeholder='Your Email Address *' />
+                            <input type="email" name="email" id="email" placeholder='Your Email *' />
+                        </div>
+                        <div className="form-group">
+                            <input type="number" name="number" id="number" placeholder='Your Mobile Number *' />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" name="subject" id="subject" placeholder='Your Subject *' />
+                        </div>
+                        <div className="form-group w-100">
+                            <textarea name="message" id="message" rows="8" placeholder='Your Message'></textarea>
+                        </div>
+                        <div className="form-group w-100 text-center">
+                            <button className='lab-btn'>
+                                <span>{btnText}</span>
+                            </button>
                         </div>
                     </form>
                 </div>
