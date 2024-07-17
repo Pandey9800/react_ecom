@@ -64,7 +64,7 @@ const SingleBlog = () => {
 
                                                                 <div className="video-thumb">
                                                                     <img src="/src/assets/images/blog/single/02.jpg" alt="" />
-                                                                    <a href="https://youtu.be/gt2JwT5Uywk?si=tBU9Y22XWdz--JNT" className='video-button popup'>
+                                                                    <a href="https://youtu.be/gt2JwT5Uywk?si=tBU9Y22XWdz--JNT" className='video-button popup' target='_blank' >
                                                                     <i className="icofont-ui-play"></i>
                                                                     </a>
                                                                 </div>
