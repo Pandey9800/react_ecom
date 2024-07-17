@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import "../components/Modal.css"
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CheckOutPage = () => {
     const [show, setShow] = useState(false);
@@ -14,6 +15,21 @@ const CheckOutPage = () => {
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+
+    // Direct to home page
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    const handleOrderConfrim = () => {
+        alert("Your Order is Placed successfully");
+        localStorage.removeItem("cart");
+        navigate(from, { replace: true });
+    };
+
+
+
+
   return (
     <div className="modalCard">
         <Button variant="primary" className='py-2' onClick={handleShow}>Proceed to Checkout</Button>
@@ -65,7 +81,7 @@ const CheckOutPage = () => {
                     </div>
                 </div>
                 <div className="px-5">
-                    <button className='btn btn-success btn-block'>Add Card</button>
+                    <button className='btn btn-success btn-block' onClick={handleOrderConfrim}>Order Now</button>
                 </div>
             </div>
         </div>
@@ -96,7 +112,7 @@ const CheckOutPage = () => {
                     </div> */}
                 </div>
                 <div className="px-5">
-                    <button className='btn btn-success btn-block'>Add Paypal</button>
+                    <button className='btn btn-success btn-block' onClick={handleOrderConfrim}>Add Paypal</button>
                 </div>
             </div>
         </div>

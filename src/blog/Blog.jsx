@@ -1,9 +1,52 @@
 import React from 'react'
 import PageHead from '../components/PageHead'
+import blogList from '../utilis/blogdata'
+import { Link } from 'react-router-dom'
 
 const Blog = () => {
   return (
-    <div><PageHead title="Blog Page" curPage="Blog" /></div>
+    <div>
+      <PageHead title="Blog Page" curPage="Blog" />
+      <div className="blog-section padding-tb section-bg">
+        <div className="container">
+          <div className="section-wrapper">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center g-4">
+              {
+                blogList.map((blog,i) => (
+                  <div key={i} className="col">
+                    <div className="post-item">
+                      <div className="post-inner">
+                        <div className="post-thumb">
+                          <Link to={`/blog/${blog.id}`}><img src={blog.imgUrl} alt="" /></Link>
+                        </div>
+                        <div className="post-content">
+                          <Link to={`/blog/${blog.id}`}><h4>{blog.title}</h4></Link>
+                          <div className="meta-post">
+                            <ul className="lab-ul">
+                              {
+                                blog.metaList.map((val, i) => (
+                                  <li key={i}><i className={val.iconName}>{val.text}</i></li>
+                                ))
+                              }
+                            </ul>
+                          </div>
+                          <p>{blog.desc}</p>
+                        </div>
+                         <div className="post-footer">
+                          <div className="pf-left">
+                            <Link to={`/blog/${blog.id}`} className='lab-btn-text'>{blog.btnText} i.</Link>
+                          </div>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
