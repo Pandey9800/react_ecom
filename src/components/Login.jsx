@@ -34,7 +34,7 @@ const Login = () => {
         })
     }
 
-    const handleRegister = (e) => {
+    const handleRegister = () => {
         signUpWithGmail().then((result) => {
             const user = result.user;
             navigate(from, {replace: true})
