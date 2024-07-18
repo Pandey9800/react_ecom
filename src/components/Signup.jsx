@@ -36,7 +36,15 @@ const Signup = () => {
       setErrorMessage("Passwords Do Not Match! Please Provide Correct Passwords");
     }
     else{
-      setErrorMessage("");
+        setErrorMessage("");
+        createUser(email, password).then((userCredential) => {
+            const user = userCredential.user;
+            alert("Account Created Successfully!");
+            navigate(from, {replace: true})
+        }).catch((error) => {
+            console.log(error.message);
+            alert(`${error.message}`);
+        })
     }
   }
 
