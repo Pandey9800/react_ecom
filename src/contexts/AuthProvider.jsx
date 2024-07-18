@@ -18,9 +18,9 @@ const AuthProvider = ({children}) => {
     }
 
     // create user using gmail
-    const signUpWithGoogle = () => {
+    const signUpWithGmail = () => {
         setLoading(true);
-        return signUpWithGoogle(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
     }
 
     // login 
@@ -49,9 +49,9 @@ const AuthProvider = ({children}) => {
         user,
         loading,
         createUser,
-        signUpWithGoogle,
         login,
         logOut,
+        signUpWithGmail,
     }
   return (
     <AuthContext.Provider value={authInfo}>

@@ -34,7 +34,7 @@ const Login = () => {
         })
     }
 
-    const handleRegister = () => {
+    const handleRegister =()=> {
         signUpWithGmail().then((result) => {
             const user = result.user;
             navigate(from, {replace: true})
@@ -84,7 +84,7 @@ const Login = () => {
                     </form>
 
                     {/* account bottom */}
-                    <div className="account-bottom">
+                    <div className="account-bottom pb-5">
                         <span className='d-block cate pt-10'>
                             Don't Have an Account? <Link to="/signup">Sign Up</Link>
                         </span>
@@ -95,7 +95,7 @@ const Login = () => {
                         {/* social login */}
 
                         <h5 className='subtitle'>{socialTitle}</h5>
-                          <ul className="lab-ul social-icons justify-content-center">
+                          <ul className="lab-ul social-icons justify-content-center pb-5">
                               <li>
                                   <button className='github' onClick={handleRegister}><i className="icofont-github"></i></button>
                               </li>
